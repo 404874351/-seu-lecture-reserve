@@ -2,7 +2,6 @@ import requests
 import base64
 import time
 from apscheduler.schedulers.blocking import BlockingScheduler
-from matplotlib import pyplot as plt
 from config import verify_code_params, verify_code_headers, lecture_headers, lecture_key
 
 

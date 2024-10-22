@@ -26,8 +26,8 @@ lecture_headers = {
     'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
     'X-Requested-With': 'XMLHttpRequest',
     # 每次操作前修改cookie
-    'Cookie': '<your-cookie>'
+    'Cookie': ""
 }
 
 # 目标讲座关键词，请尽可能指向唯一目标
-lecture_key = "<lecture-title>"
+lecture_key = "自信中国"

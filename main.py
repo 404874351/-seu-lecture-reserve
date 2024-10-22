@@ -2,7 +2,7 @@ import requests
 import base64
 import time
 from apscheduler.schedulers.blocking import BlockingScheduler
-
+from matplotlib import pyplot as plt
 from config import verify_code_params, verify_code_headers, lecture_headers, lecture_key
 
 
@@ -44,7 +44,7 @@ def get_target_lecture(key):
     """
     
     r = requests.post(
-        url='http://ehall.seu.edu.cn/gsapp/sys/yddjzxxtjappseu/modules/hdyy/queryActivityList.do',
+        url='https://ehall.seu.edu.cn/gsapp/sys/yddjzxxtjappseu/modules/hdyy/queryActivityList.do',
         headers=lecture_headers,
     )
     if r.status_code != 200 or len(r.text) == 0:
@@ -83,7 +83,7 @@ def get_lecture_verify_code(wid):
     """
     
     r = requests.get(
-        url='http://ehall.seu.edu.cn/gsapp/sys/yddjzxxtjappseu/modules/hdyy/vcode.do',
+        url='https://ehall.seu.edu.cn/gsapp/sys/yddjzxxtjappseu/modules/hdyy/vcode.do',
         params={'_': int(time.time() * 1000)},
         headers=lecture_headers,
     )
@@ -110,7 +110,7 @@ def reserve_lecture(wid, verify_code):
         'vcode': verify_code,
     }
     r = requests.post(
-        url='http://ehall.seu.edu.cn/gsapp/sys/yddjzxxtjappseu/modules/hdyy/addReservation.do',
+        url='https://ehall.seu.edu.cn/gsapp/sys/yddjzxxtjappseu/modules/hdyy/addReservation.do',
         data=params,
         headers=lecture_headers,
     )
@@ -129,7 +129,7 @@ def keep_alive(wid):
     """
     
     r = requests.post(
-        url='http://ehall.seu.edu.cn/gsapp/sys/yddjzxxtjappseu/modules/hdyy/getActivityDetail.do',
+        url='https://ehall.seu.edu.cn/gsapp/sys/yddjzxxtjappseu/modules/hdyy/getActivityDetail.do',
         data={ 'wid': wid },
         headers=lecture_headers,
     )
